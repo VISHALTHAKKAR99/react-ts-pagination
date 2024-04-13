@@ -3,9 +3,9 @@ import typescript from "@rollup/plugin-typescript";
 import postcss from 'rollup-plugin-postcss';
 import tailwindcss from 'tailwindcss';
 export default defineConfig({
-    input: 'main.ts',
+    input: 'src/main.ts',
     output: {
-        file: 'dist',
+        file: 'dist/bundle.js',
         format: 'es',
         name: 'react-ts-paginations'
     },
