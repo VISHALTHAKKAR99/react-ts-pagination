@@ -7,7 +7,7 @@ export default defineConfig({
     output:{
         dir:'dist',
         format:'es',
-        name:'react-ts-pagination'
+        name:'react-ts-paginations'
     },
     external:["react","react-dom"],
     plugins:[typescript({tsconfig:"tsconfig.json"},
