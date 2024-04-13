@@ -21,6 +21,7 @@
     "jsx": "react-jsx",
     "declaration": true,
     "declarationDir":"dist",
+    "outDir": "dist"
   },
   "include": [
     "src"
