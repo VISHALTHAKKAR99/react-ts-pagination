@@ -31,6 +31,7 @@
 import { defineConfig } from "rollup";
 import typescript from "@rollup/plugin-typescript";
 import postcss from 'rollup-plugin-postcss';
+import tailwindcss from 'tailwindcss';
 export default {
     input: 'src/index.tsx',
     output: {
@@ -45,6 +46,7 @@ export default {
             extract: true,
             minimize: true,
             plugins: [
+                tailwindcss,
                 require('tailwindcss'),
                 require('postcss-import')
             ]
