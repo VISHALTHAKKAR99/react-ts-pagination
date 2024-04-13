@@ -3,7 +3,7 @@ import typescript from "@rollup/plugin-typescript";
 import postcss from 'rollup-plugin-postcss';
 import tailwindcss from 'tailwindcss';
 export default defineConfig({
-    input: 'src/index.tsx',
+    input: 'main.ts',
     output: {
         file: 'dist',
         format: 'es',

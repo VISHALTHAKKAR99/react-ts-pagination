@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 // import usersData from '../data.json';
-import Pagination from './Pagination';
+import {Pagination} from './Pagination';
 import filterServiceProps from '../component/filter';
 
 interface User {
