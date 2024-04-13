@@ -1,7 +1,6 @@
 {
   "name": "react-ts-pagination",
   "version": "1.0.0",
-  "private": true,
   "main": "dist/App.js",
   "type": "module",
   "types": "dist/App.d.ts",
