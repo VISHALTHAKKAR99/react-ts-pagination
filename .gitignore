@@ -6,7 +6,8 @@
 /.pnp
 .pnp.js
 
-dist
+/dist
+/src
 # testing
 /coverage
 
