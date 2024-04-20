@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-// import usersData from '../data.json';
-import {Pagination} from './Pagination';
+import usersData from '../data.json';
+import { Pagination } from './Pagination';
 import filterServiceProps from '../component/filter';
 
 interface User {
@@ -13,7 +13,7 @@ const MainPage = () => {
     const [users, setUsers] = useState<User[]>([]);
     const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
     const [filterData, setFilterData] = useState({
-        limit: 10, // Default to show 10 records per page
+        limit: 10, 
         page: 1,
     });
     const SHOW_PAGE_COUNT_ARR = [10, 20, 30, 40, 50];
@@ -46,14 +46,15 @@ const MainPage = () => {
 
     useEffect(() => {
         // Load users data
-        // setUsers(usersData);
+        setUsers(usersData);
     }, []);
 
     const totalPages = Math.ceil(users.length / filterData.limit);
 
     return (
         <div>
-            <select value={filterData.limit} className='table-select-dropdown' onChange={(e) => onPageDrpSelect(e.target.value)}>
+            <select value={filterData.limit} style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem', "border": "1px solid #cbd5e0", "borderRadius": "0.375rem", "paddingLeft": "0.75rem", "paddingRight": "0.75rem", "fontSize": "0.875rem", "paddingTop": "0.375rem", "paddingBottom": "0.375rem", "color": "#4b5563", "marginLeft": "0.25rem", "marginRight": "0.25rem", "backgroundColor": "#ffffff", "borderColor": "#a5b4fc" }}
+                onChange={(e) => onPageDrpSelect(e.target.value)}>
                 {SHOW_PAGE_COUNT_ARR.map((item: number) => (
                     <option key={item}>{item}</option>
                 ))}
