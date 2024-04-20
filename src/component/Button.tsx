@@ -1,9 +1,9 @@
 import React from 'react';
-import { ButtonProps, OptionsPropsForButton } from '../types/button';
+// import { ButtonProps, OptionsPropsForButton } from '../types/button';
 
-const Button = ({ id, label, onClick, type = 'button', className, children, disabled = false, data, icon, spanClassName = 'svg-icon inline-block h-3.5 w-3.5', title }: ButtonProps) => {
+const Button = ({ id, label, onClick, type = 'button', className, children, disabled = false, data, icon, spanClassName = 'svg-icon inline-block h-3.5 w-3.5', title }: any) => {
 	const buttonClickFun = () => {
-		const options: OptionsPropsForButton = {    
+		const options: any = {    
 			data: data,
 			
 		};

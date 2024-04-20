@@ -1,7 +1,3 @@
-
-	
-	
-	
 const persistPageWiseFilter = true;
 
 const FilterStorageService = {

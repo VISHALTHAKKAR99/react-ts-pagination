@@ -1,6 +1,4 @@
 import React, { useCallback } from 'react';
-import Button from '../component/Button';
-import { BackwardIcon, AngleLeftIcon, AngleRightIcon, ForwordIcon } from '../icons/iscon';
 
 interface PaginationProps {
     currentPage: number;
@@ -42,7 +40,20 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
             <button
                 key={pageNumber}
                 onClick={() => handlePageClick(pageNumber)}
-                className={`mr-2 mx-1 w-6 h-rise-2 rounded-sm text-xs ${pageNumber === currentPage ? 'font-bold bg-primary text-white w-5 text-center' : ''}`}
+                // className={`mr-2 mx-1 w-6 h-rise-2 rounded-sm text-xs ${pageNumber === currentPage ? 'font-bold bg-primary text-white w-5 text-center' : ''}`}
+                style={{
+                    marginRight: '0.5rem',
+                    marginLeft: '0.25rem',
+                    width: '1.5rem',
+                    height: '2rem', // Assuming h-rise-2 was meant to be h-2
+                    borderRadius: '0.125rem', // Equivalent to rounded-sm
+                    fontSize: '0.75rem', // Equivalent to text-xs
+                    fontWeight: pageNumber === currentPage ? 'bold' : 'normal',
+                    backgroundColor: pageNumber === currentPage ? 'red' : 'transparent', // Equivalent to bg-primary
+                    color: pageNumber === currentPage ? '#fff' : '#000', // Equivalent to text-white or default text color
+                    textAlign: 'center',
+                }}
+
             >
                 {pageNumber}
             </button>
@@ -69,44 +80,39 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
         handlePageClick(totalPages);
     };
 
-
-
     return (
-        <div className='pagination flex items-center'>
-           
-            <div className='flex items-center'>
-                <Button onClick={handleFirstPageClick} disabled={currentPage <= 0 || currentPage === 1} className={currentPage === 1 ? 'cursor-not-allowed' : ''}>
-                    <div className='px-1.5 mx-1 my-1'>
-                        <span className='w-2 h-2 text-gray-800 inline-block svg-icon '>
-                            <BackwardIcon />
-                        </span>
+
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+                <button onClick={handleFirstPageClick} disabled={currentPage <= 0 || currentPage === 1} style={{ cursor: currentPage === 1 ? 'white' : 'pointer' }}>
+                    <svg fill="#000000" width="18px" height="18px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.144"></g><g id="SVGRepo_iconCarrier"><path d="M6.945,12.832l12,8A1,1,0,0,0,20.5,20V4a1,1,0,0,0-1.555-.832l-12,8a1,1,0,0,0,0,1.664ZM18.5,5.869V18.131L9.3,12ZM3.5,18V6a1,1,0,0,1,2,0V18a1,1,0,0,1-2,0Z"></path></g></svg>
+                </button>
+                <button onClick={handlePrevPageClick} disabled={currentPage <= 0} style={{ cursor: currentPage === 1 ? 'not-allowed' : 'pointer' }}>
+                    <div style={{ padding: '0.375rem', margin: '0.25rem' }}>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
                     </div>
-                </Button>
-                <Button onClick={handlePrevPageClick} disabled={currentPage <= 0} className={currentPage === 1 ? 'cursor-not-allowed' : ''}>
-                    <div className='px-1.5 mx-1 my-1'>
-                        <span className='w-2 h-2 text-gray-800 inline-block svg-icon '>
-                            <AngleLeftIcon />
-                        </span>
+                </button>
+                <div style={{ display: 'flex', alignItems: 'center', margin: '0.25rem' }}>{renderPageNumbers()}</div>
+                <button onClick={handleNextPageClick} disabled={currentPage === totalPages} style={{ cursor: currentPage === totalPages ? 'not-allowed' : 'pointer' }}>
+                    <div style={{ padding: '0.375rem', margin: '0.25rem' }}>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
                     </div>
-                </Button>
-                <div className='flex items-center my-1'>{renderPageNumbers()}</div>
-                <Button onClick={handleNextPageClick} disabled={currentPage === totalPages} className={currentPage === totalPages ? 'cursor-not-allowed' : ''}>
-                    <div className='px-1.5 mx-1 my-1'>
-                        <span className='w-2 h-2 text-gray-800 inline-block svg-icon '>
-                            <AngleRightIcon />
-                        </span>
+                </button>
+                <button onClick={handleLastPageClick} disabled={currentPage === totalPages} style={{ cursor: currentPage === totalPages ? 'not-allowed' : 'pointer' }}>
+                    <div style={{ padding: '0.375rem', margin: '0.25rem' }}>
+
+                        <svg fill="#000000" width="18px" height="18px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M4.028,20.882a1,1,0,0,0,1.027-.05l12-8a1,1,0,0,0,0-1.664l-12-8A1,1,0,0,0,3.5,4V20A1,1,0,0,0,4.028,20.882ZM5.5,5.869,14.7,12,5.5,18.131ZM18.5,18V6a1,1,0,0,1,2,0V18a1,1,0,0,1-2,0Z"></path></g></svg>
                     </div>
-                </Button>
-                <Button onClick={handleLastPageClick} disabled={currentPage === totalPages} className={currentPage === totalPages ? 'cursor-not-allowed' : ''}>
-                    <div className='px-1.5 mx-1 my-1'>
-                        <span className='w-2 h-2 text-gray-800 inline-block svg-icon'>
-                            <ForwordIcon />
-                        </span>
-                    </div>
-                </Button>
+                </button>
             </div>
         </div>
     );
 };
 
-export {Pagination};
+export { Pagination };

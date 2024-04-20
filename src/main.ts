@@ -1,2 +1,3 @@
-export { Pagination } from "./views/Pagination";
+import  {Pagination} from "./views/Pagination";
 
+export {Pagination}
